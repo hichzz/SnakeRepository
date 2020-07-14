@@ -54,5 +54,11 @@ namespace Snake
             }
 
         }
+
+        public void Clear()
+        {
+            symbol = ' ';
+            Draw();
+        }
     }
 }
