@@ -7,15 +7,15 @@ namespace Snake
 {
     class Snake : Figure
     {
-        Direction direction;
-        public Snake(Point tail, int length, Direction _direction)
+        private Direction Direction;
+        public Snake(Point tail, int length, Direction direction)
         {
-            direction = _direction;
+            Direction = direction;
             points = new List<Point>();
             for (int i = 0; i < length; i++)
             {
                 Point p = new Point(tail);
-                p.Move(i, direction);
+                p.Move(i, Direction);
                 points.Add(p);
             }
         }
@@ -35,8 +35,27 @@ namespace Snake
         {
             Point head = points.Last();
             Point nextPoint = new Point(head);
-            nextPoint.Move(1, direction);
+            nextPoint.Move(1, Direction);
             return nextPoint;
+        }
+
+        public void HandleKey(ConsoleKey key)
+        {
+            switch (key)
+            {
+                case ConsoleKey.LeftArrow:
+                    Direction = Direction.Left;
+                    break;
+                case ConsoleKey.RightArrow:
+                    Direction = Direction.Right;
+                    break;
+                case ConsoleKey.DownArrow:
+                    Direction = Direction.Down;
+                    break;
+                case ConsoleKey.UpArrow:
+                    Direction = Direction.Up;
+                    break;
+            }
         }
     }
 }

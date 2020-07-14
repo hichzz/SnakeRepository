@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace Snake
 {
@@ -22,7 +23,17 @@ namespace Snake
             snake.Draw();
             snake.Move();
 
-            Console.ReadLine();
+            while (true)
+            {
+                if (Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo key = Console.ReadKey();
+                    snake.HandleKey(key.Key);
+                }
+                Thread.Sleep(100);
+                snake.Move();
+            }
+
         }
 
     }

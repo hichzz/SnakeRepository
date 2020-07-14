@@ -40,10 +40,10 @@ namespace Snake
             switch (direction)
             {
                 case Direction.Left:
-                    coordX += offset;
+                    coordX -= offset;
                     break;
                 case Direction.Right:
-                    coordX -= offset;
+                    coordX += offset;
                     break;
                 case Direction.Up:
                     coordY -= offset;
