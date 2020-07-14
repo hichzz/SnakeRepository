@@ -6,9 +6,9 @@ namespace Snake
 {
     class Point
     {
-        private int coordX;
-        private int coordY;
-        private char symbol;
+        public int coordX;
+        public int coordY;
+        public char symbol;
         
         public Point()
         {
@@ -55,10 +55,20 @@ namespace Snake
 
         }
 
+        public bool IsHit(Point p)
+        {
+            return p.coordX == this.coordX && p.coordY == this.coordY;
+        }
+
         public void Clear()
         {
             symbol = ' ';
             Draw();
+        }
+
+        public override string ToString()
+        {
+            return coordX + ", " + coordY + ", " + symbol;
         }
     }
 }
