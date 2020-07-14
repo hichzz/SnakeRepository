@@ -5,11 +5,13 @@ namespace Snake
 {
     class Program
     {
+		private const int MapHeight = 25;
+		private const int MapWidth = 80;
         static void Main(string[] args)
         {
-            Console.SetWindowSize(80, 25);
+            Console.SetWindowSize(MapWidth, MapHeight);
 
-			Walls walls = new Walls(80, 25);
+			Walls walls = new Walls(MapWidth, MapHeight);
 			walls.Draw();
 
 			Point p = new Point(8, 5, '*');
@@ -17,20 +19,25 @@ namespace Snake
             snake.Draw();
 
 
-			FoodCreator foodCreator = new FoodCreator(80, 25, '$');
+			FoodCreator foodCreator = new FoodCreator(MapWidth, MapHeight, '$');
 			Point food = foodCreator.CreateFood();
 			food.Draw();
 
+			FoodLine foodLine = new FoodLine();
 			while (true)
 			{
 				if (walls.IsHit(snake) || snake.IsHitTail())
 				{
+					snake.Clear();
+					GameMessages.GameOver(MapWidth, MapHeight);
 					break;
 				}
 				if (snake.Eat(food))
 				{
+					foodLine.IncrementCount();
 					food = foodCreator.CreateFood();
 					food.Draw();
+					foodLine.ShowFood(MapHeight, '$');
 				}
 				else
 				{

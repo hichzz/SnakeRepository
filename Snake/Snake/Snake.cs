@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Snake
 {
@@ -31,14 +30,6 @@ namespace Snake
             head.Draw();
         }
 
-        public Point GetNextPoint()
-        {
-            Point head = points.Last();
-            Point nextPoint = new Point(head);
-            nextPoint.Move(1, Direction);
-            return nextPoint;
-        }
-
         internal bool IsHitTail()
         {
             var head = points.Last();
@@ -48,6 +39,22 @@ namespace Snake
                     return true;
             }
             return false;
+        }
+
+        public Point GetNextPoint()
+        {
+            Point head = points.Last();
+            Point nextPoint = new Point(head);
+            nextPoint.Move(1, Direction);
+            return nextPoint;
+        }
+
+        public void Clear()
+        {
+            foreach (Point point in points)
+            {
+                point.Clear();
+            }
         }
 
         public void HandleKey(ConsoleKey key)

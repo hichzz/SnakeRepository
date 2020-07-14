@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Snake
 {
 	class FoodCreator
 	{
-		int mapWidht;
-		int mapHeight;
-		char sym;
+		private int mapWidht;
+		private int mapHeight;
+		private char sym;
 
 		Random random = new Random();
 

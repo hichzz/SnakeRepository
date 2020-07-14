@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Snake
 {
@@ -21,10 +17,14 @@ namespace Snake
 			VerticalLine leftLine = new VerticalLine(0, 0, mapHeight - 1, '+');
 			VerticalLine rightLine = new VerticalLine(mapWidth - 2, 0, mapHeight - 1, '+');
 
+			HorizontalLine downLineTwo = new HorizontalLine(0, mapWidth - 2, mapHeight - 3, '+');
+
+
 			walls.Add(upLine);
 			walls.Add(downLine);
 			walls.Add(leftLine);
 			walls.Add(rightLine);
+			walls.Add(downLineTwo);
 		}
 
 		internal bool IsHit(Figure figure)
