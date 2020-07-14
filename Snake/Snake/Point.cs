@@ -6,26 +6,26 @@ namespace Snake
 {
     class Point
     {
-        public int X;
-        public int Y;
-        public char Symbol;
+        private int coordX;
+        private int coordY;
+        public char symbol;
         
         public Point()
         {
 
         }
 
-        public Point(int x, int y, char symbol)
+        public Point(int x, int y, char sym)
         {
-            X = x;
-            Y = y;
-            Symbol = symbol;
+            coordX = x;
+            coordY = y;
+            symbol = sym;
         }
 
         public void Draw()
         {
-            Console.SetCursorPosition(X, Y);
-            Console.WriteLine(Symbol);
+            Console.SetCursorPosition(coordX, coordY);
+            Console.WriteLine(symbol);
         }
     }
 }
