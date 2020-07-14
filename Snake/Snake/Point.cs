@@ -8,7 +8,7 @@ namespace Snake
     {
         private int coordX;
         private int coordY;
-        public char symbol;
+        private char symbol;
         
         public Point()
         {
