@@ -15,7 +15,7 @@ namespace Snake
 			Walls walls = new Walls(MapWidth, MapHeight);
 			walls.Draw();
 
-			Point p = new Point(8, 5, '*');
+			Point p = new Point(4, 5, '*');
             Snake snake = new Snake(p, 4, Direction.Right);
             snake.Draw();
 
@@ -50,7 +50,6 @@ namespace Snake
 				{
 					ConsoleKeyInfo key = Console.ReadKey();
 					snake.HandleKey(key.Key);
-					walls.Draw();
 				}
 			}
 			Console.ReadLine();

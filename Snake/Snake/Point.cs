@@ -30,7 +30,7 @@ namespace Snake
         public void Draw()
         {
             Console.SetCursorPosition(coordX, coordY);
-            Console.WriteLine(symbol);
+            Console.Write(symbol);
         }
 
         public void Move(int offset, Direction direction)
