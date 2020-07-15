@@ -9,7 +9,8 @@ namespace Snake
 		private const int MapWidth = 80;
         static void Main(string[] args)
         {
-            Console.SetWindowSize(MapWidth, MapHeight);
+			Console.SetWindowSize(MapWidth, MapHeight);
+			Console.CursorVisible = false;
 
 			Walls walls = new Walls(MapWidth, MapHeight);
 			walls.Draw();
@@ -49,8 +50,10 @@ namespace Snake
 				{
 					ConsoleKeyInfo key = Console.ReadKey();
 					snake.HandleKey(key.Key);
+					walls.Draw();
 				}
 			}
+			Console.ReadLine();
 
 		}
 

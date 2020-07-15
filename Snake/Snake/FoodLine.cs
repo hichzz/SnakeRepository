@@ -27,14 +27,6 @@ namespace Snake
 
         public void IncrementCount() => CountEatenFood++;
 
-        public void Clear()
-        {
-            foreach (Point point in points)
-            {
-                point.Clear();
-            }
-        }
-
         public void ShowFood(int mapHeight, char symbol)
         {
             Clear();

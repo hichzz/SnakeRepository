@@ -49,14 +49,6 @@ namespace Snake
             return nextPoint;
         }
 
-        public void Clear()
-        {
-            foreach (Point point in points)
-            {
-                point.Clear();
-            }
-        }
-
         public void HandleKey(ConsoleKey key)
         {
             switch (key)

@@ -32,5 +32,13 @@ namespace Snake
 			}
 			return false;
 		}
+
+		public void Clear()
+		{
+			foreach (Point point in points)
+			{
+				point.Clear();
+			}
+		}
 	}
 }
