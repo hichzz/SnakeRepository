@@ -7,6 +7,8 @@ namespace Snake
     class Snake : Figure
     {
         private Direction Direction;
+        public int CountEatenFood;
+
         public Snake(Point tail, int length, Direction direction)
         {
             Direction = direction;
@@ -40,6 +42,7 @@ namespace Snake
             }
             return false;
         }
+        public void IncrementCount() => CountEatenFood++;
 
         public Point GetNextPoint()
         {
@@ -75,6 +78,7 @@ namespace Snake
             {
                 food.symbol = head.symbol;
                 points.Add(food);
+                IncrementCount();
                 return true;
             }
             else

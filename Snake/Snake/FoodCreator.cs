@@ -8,7 +8,7 @@ namespace Snake
 		private int mapHeight;
 		private char sym;
 
-		Random random = new Random();
+		private Random random = new Random();
 
 		public FoodCreator(int mapWidth, int mapHeight, char sym)
 		{

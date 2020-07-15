@@ -4,6 +4,7 @@ namespace Snake
 {
 	class Walls
 	{
+		private const char SymbolWall = '+';
 		private List<Figure> walls;
 
 		public Walls(int mapWidth, int mapHeight)
@@ -12,18 +13,15 @@ namespace Snake
 
 			// Отрисовка рамочки
 
-			HorizontalLine upLine = new HorizontalLine(0, mapWidth - 2, 0, '+');
-			HorizontalLine downLine = new HorizontalLine(0, mapWidth - 2, mapHeight - 1, '+');
-			VerticalLine leftLine = new VerticalLine(0, 0, mapHeight - 1, '+');
-			VerticalLine rightLine = new VerticalLine(mapWidth - 2, 0, mapHeight - 1, '+');
-
-			HorizontalLine downLineTwo = new HorizontalLine(0, mapWidth - 2, mapHeight - 3, '+');
+			HorizontalLine upLine = new HorizontalLine(0, mapWidth - 2, 0, SymbolWall);
+			HorizontalLine downLine = new HorizontalLine(0, mapWidth - 2, mapHeight - 1, SymbolWall);
+			VerticalLine leftLine = new VerticalLine(0, 0, mapHeight - 1, SymbolWall);
+			VerticalLine rightLine = new VerticalLine(mapWidth - 2, 0, mapHeight - 1, SymbolWall);
 
 			walls.Add(upLine);
 			walls.Add(downLine);
 			walls.Add(leftLine);
 			walls.Add(rightLine);
-			walls.Add(downLineTwo);
 		}
 
 		internal bool IsHit(Figure figure)

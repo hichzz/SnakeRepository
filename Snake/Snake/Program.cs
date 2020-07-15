@@ -7,6 +7,8 @@ namespace Snake
     {
 		private const int MapHeight = 25;
 		private const int MapWidth = 80;
+		private const char SnakeSymbol = '*';
+		private const char FoodSymbol = '$';
         static void Main(string[] args)
         {
 			Console.SetWindowSize(MapWidth, MapHeight);
@@ -15,16 +17,15 @@ namespace Snake
 			Walls walls = new Walls(MapWidth, MapHeight);
 			walls.Draw();
 
-			Point p = new Point(4, 5, '*');
+			Point p = new Point(4, 5, SnakeSymbol);
             Snake snake = new Snake(p, 4, Direction.Right);
             snake.Draw();
 
 
-			FoodCreator foodCreator = new FoodCreator(MapWidth, MapHeight, '$');
+			FoodCreator foodCreator = new FoodCreator(MapWidth, MapHeight, FoodSymbol);
 			Point food = foodCreator.CreateFood();
 			food.Draw();
 
-			FoodLine foodLine = new FoodLine();
 			while (true)
 			{
 				if (walls.IsHit(snake) || snake.IsHitTail())
@@ -35,10 +36,9 @@ namespace Snake
 				}
 				if (snake.Eat(food))
 				{
-					foodLine.IncrementCount();
 					food = foodCreator.CreateFood();
 					food.Draw();
-					foodLine.ShowFood(MapHeight, '$');
+					GameMessages.DrawEatenFoodCounter(MapHeight, snake);
 				}
 				else
 				{
